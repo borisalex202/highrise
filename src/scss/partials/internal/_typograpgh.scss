@@ -1,0 +1,172 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  font-size: map_get($size, a);
+  font-weight: 500;
+  color: map_get($colors, link);
+  text-decoration: underline;
+  @include transition($transition);
+
+  &:hover {
+    text-decoration: none;
+    color: map_get($colors, linkHover);
+  }
+}
+p {
+  color: #fff;
+  font-size: map_get($size, p);
+  font-weight: 400;
+  margin: 0;
+  text-align: justify;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  a {
+    text-transform: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: 14px;
+  }
+}
+strong {
+  font-weight: 700;
+}
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+input,
+textarea,
+select {
+  width: 100%;
+  outline: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+  @include transition($transition);
+}
+select {
+  -webkit-appearance: none;
+}
+textarea {
+  resize: none;
+}
+button,
+input,
+textarea,
+a {
+  outline: none !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 400;
+  word-wrap: break-word;
+  color: map_get($colors, heading);
+
+  a {
+    text-transform: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}
+h1 {
+  font-size: map_get($size, h1);
+  margin: 0 0 40px;
+
+  @media (max-width: $screen-sm-max) {
+    font-size: map_get($size, h1)/1.3;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: map_get($size, h1)/1.5;
+  }
+}
+h2 {
+  font-size: map_get($size, h2);
+  margin: 0 0 30px;
+
+  @media (max-width: $screen-sm-max) {
+    font-size: map_get($size, h2)/1.3;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: map_get($size, h2)/1.5;
+  }
+}
+h3 {
+  font-size: map_get($size, h3);
+  margin: 0 0 20px;
+
+  @media (max-width: $screen-sm-max) {
+    font-size: map_get($size, h3)/1.3;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: map_get($size, h3)/1.5;
+  }
+}
+h4 {
+  font-size: map_get($size, h4);
+  margin: 0 0 20px;
+
+  @media (max-width: $screen-sm-max) {
+    font-size: map_get($size, h4)/1.3;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: map_get($size, h4)/1.5;
+  }
+}
+h5 {
+  font-size: map_get($size, h5);
+  margin: 0 0 20px;
+
+  @media (max-width: $screen-sm-max) {
+    font-size: map_get($size, h4)/1.3;
+  }
+}
+h6 {
+  font-size: map_get($size, h6);
+  margin: 0 0 15px;
+
+  @media (max-width: $screen-sm-max) {
+    font-size: map_get($size, h4)/1.3;
+  }
+}
+iframe {
+  border: 0;
+}
+._text {
+  &-light {
+    font-weight: 300;
+  }
+  &-normal {
+    font-weight: 400;
+  }
+  &-semibold {
+    font-weight: 600;
+  }
+  &-bold {
+    font-weight: 700;
+  }
+  &-back {
+    font-weight: 800;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-underline {
+    text-decoration: underline;
+  }
+}

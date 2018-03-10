@@ -1,0 +1,28 @@
+._event {
+  &__open-menu {
+    .site {
+      &-header {
+        background: #fff;
+      }
+      &-mobile-menu {
+        @include translate(0, 0);
+      }
+    }
+    .icon-menu {
+      &__bar {
+        &:nth-child(1) {
+          margin: 11px 0 0 0;
+          @include rotate(45deg);
+        }
+        &:nth-child(2) {
+          @include opacity(0);
+        }
+        &:nth-child(3) {
+          max-width: 28px;
+          margin: -11px 0 0 0;
+          @include rotate(-45deg);
+        }
+      }
+    }
+  }
+}

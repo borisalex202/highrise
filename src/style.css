@@ -1,0 +1,15 @@
+/*
+Theme Name: Highrise
+Theme URI:
+Author: Alexander Boris
+Author URI: borisalex202@gmail.com
+Description: Theme for the game development company
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:
+Text Domain: highrise
+*/
+
+@import "./css/external.css";
+@import "./css/internal.css";

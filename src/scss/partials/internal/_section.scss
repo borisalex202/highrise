@@ -1,0 +1,157 @@
+.section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+
+  &--about {
+    &-page {
+      .container {
+        @include justify-content(space-between);
+      }
+      p {
+        width: calc(50% - 35px);
+
+        &:last-child {
+          width: 100%;
+          text-align: center;
+        }
+        @media (max-width: $screen-sm-max) {
+          width: 100%;
+        }
+      }
+    }
+    &_thumb {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 80%;
+      margin-left: -30%;
+      min-height: 450px;
+
+      @media (max-width: $screen-sm-max) {
+        width: 140%;
+        margin-left: -20%;
+        margin-right: -20%;
+        margin-bottom: 30px;
+      }
+      @media (max-width: $screen-xs-max) {
+        min-height: 350px;
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+    }
+    &_info {
+      width: 50%;
+      padding-left: 50px;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(flex-start);
+
+      p {
+        width: 100%;
+      }
+      .btn {
+        margin-top: auto;
+      }
+      @media (max-width: $screen-sm-max) {
+        width: 100%;
+        padding: 0;
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+    p {
+      font-size: 16px;
+      color: #DDDDDD;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 14px;
+      }
+    }
+  }
+  &--contact {
+    &-page {
+      &._shown_map {
+        .map-toggle {
+          ._on {
+            display: block;
+          }
+          ._off {
+            display: none;
+          }
+        }
+        .map {
+          &:before {
+            pointer-events: none;
+            @include opacity(0);
+          }
+        }
+        .contact-form {
+          @include opacity(0);
+          pointer-events: none;
+        }
+      }
+      .container {
+        position: relative;
+        z-index: 5;
+        pointer-events: none;
+      }
+      @media (max-width: $screen-sm-max) {
+        padding: 0 !important;
+
+        .container {
+          width: 100%;
+          max-width: 100%;
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+  &--games {
+    &_icon {
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 100%;
+      height: 100%;
+      max-width: 421px;
+      max-height: 421px;
+
+      @media (max-width: $screen-sm-max) {
+        top: -20px;
+        left: -20px;
+        max-width: 210px;
+        max-height: 210px;
+      }
+      @media (max-width: $screen-xs-max) {
+        top: -20px;
+        left: -20px;
+        max-width: 160px;
+        max-height: 160px;
+      }
+    }
+  }
+  &--news {
+    padding-bottom: 0;
+  }
+  @media (max-width: $screen-sm-max) {
+    padding: 60px 0;
+
+    &--news {
+      padding-bottom: 0;
+    }
+  }
+  @media (max-width: $screen-xs-max) {
+    padding: 30px 0;
+
+    &--news {
+      padding-bottom: 0;
+    }
+    &--subscribe {
+      padding-bottom: 0;
+    }
+  }
+}

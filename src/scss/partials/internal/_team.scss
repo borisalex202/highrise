@@ -1,0 +1,64 @@
+.team {
+  &-list {
+    margin: -40px -20px 0;
+    @include flexbox();
+    @include flex-wrap(wrap);
+
+    @media (max-width: $screen-xs-max) {
+      margin-top: -30px;
+    }
+  }
+  &-item {
+    margin: 40px 20px 0;
+    width: calc(33.3333% - 40px);
+
+    &__thumbnail {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      border: 5px solid map_get($colors, secondary);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &__title {
+      font-size: 30px;
+      text-align: center;
+      margin: 0 0 5px 0;
+    }
+    &__who {
+      font-size: 14px;
+      color: #BAB7B7;
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+    &__info {
+      p {
+        font-size: 14px;
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
+    }
+    &__address {
+      margin-top: 15px;
+      font-size: 14px;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+    @media (max-width: $screen-sm-max) {
+      width: calc(50% - 40px);
+    }
+    @media (max-width: $screen-xs-max) {
+      width: calc(100% - 40px);
+      margin-top: 30px;
+    }
+  }
+}

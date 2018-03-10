@@ -1,0 +1,546 @@
+.games {
+  &-list {
+    margin-bottom: 50px;
+    @include flexbox();
+    @include flex-wrap(wrap);
+
+    @media (max-width: $screen-sm-max) {
+      margin-bottom: 30px;
+    }
+  }
+  &-item {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    @include transition($transition);
+
+    &:hover {
+      z-index: 2;
+      @include box-shadow(map_get($shadows, game));
+
+      .games-item {
+        &__thumbnail {
+          @include opacity(.2);
+        }
+        &__header {
+          &:before {
+            @include translate(0, 0);
+          }
+          .games-item {
+            &__title,
+            &__line,
+            &__excerpt {
+              left: 0;
+              @include transition-delay(0s);
+              @include opacity(1);
+            }
+            &__trailer {
+              right: 15px;
+              @include opacity(1);
+            }
+          }
+        }
+        &__about {
+          left: 15px;
+          @include opacity(1);
+        }
+        &__logo {
+          @include translate(0, -400%);
+        }
+      }
+    }
+    &._shown_content {
+      .games-item {
+        &__thumbnail {
+          @include opacity(.2);
+        }
+        &__content {
+          &-circle {
+            @include translate(30%, -25%);
+          }
+          .games-item {
+            &__title,
+            &__line,
+            &__excerpt,
+            &__specifications {
+              @include opacity(1);
+            }
+            &__trailer {
+              @include transition(opacity .3s .3s ease);
+              @include transition(background .3s ease, border, .3s ease);
+              @include opacity(1);
+            }
+          }
+        }
+        &__about {
+          left: 15px;
+          @include opacity(1);
+
+          &-icon {
+            border-color: #fff;
+            background: transparent;
+          }
+          &-text {
+            color: #fff;
+          }
+          &:hover {
+            .games-item__about {
+              &-icon {
+                border-color: map_get($colors, default);
+                background: map_get($colors, default);
+              }
+              &-text {
+                color: map_get($colors, default);
+              }
+            }
+          }
+          .icon-about {
+            display: none;
+          }
+          .icon-arrow-down {
+            display: block;
+          }
+        }
+        &__header {
+          &:before {
+            @include translate(36%, -36%);
+          }
+          .games-item {
+            &__title,
+            &__line,
+            &__excerpt {
+              left: 20%;
+              @include opacity(0);
+            }
+            &__trailer {
+              right: -15px;
+              @include opacity(0);
+            }
+          }
+        }
+      }
+    }
+    &__thumbnail {
+      display: block;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      min-height: 350px;
+      position: relative;
+      z-index: 2;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+      @include transition($transition);
+
+      @media (max-width: $screen-sm-max) {
+        min-height: 400px;
+      }
+    }
+    &__logo {
+      max-width: 300px;
+      margin: auto;
+      @include transition($transition);
+    }
+    &__header {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 10;
+      max-width: 45%;
+      padding: 15px;
+      text-align: right;
+      min-height: 260px;
+      @include transition(all .5s ease);
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: -260px;
+        bottom: 0;
+        top: -260px;
+        z-index: 0;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: #F15959;
+        box-shadow: map_get($shadows, circle);
+        @include transition($transition);
+        @include transition-delay(.1s);
+        @include translate(36%, -36%);
+      }
+      @media (max-width: $screen-sm-max) {
+        display: none;
+      }
+    }
+    &__content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      max-width: 87%;
+      z-index: 10;
+      padding: 15px;
+      text-align: left;
+      pointer-events: none;
+      @include transition(all .5s ease);
+
+      &-circle {
+        content: '';
+        position: absolute;
+        right: 0;
+        left: -342px;
+        bottom: 0;
+        top: 0;
+        z-index: 0;
+        width: 685px;
+        height: 685px;
+        border-radius: 50%;
+        background: #F15959;
+        overflow: hidden;
+        box-shadow: map_get($shadows, circle);
+        @include transition($transition);
+        @include transition-delay(.1s);
+        @include translate(-60%, -25%);
+
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: 225px;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: map_get($colors, default);
+          z-index: 15;
+          @include box-shadow(map_get($shadows, line), 0 -10px 0px 10px rgba(map_get($colors, secondary), .9));
+        }
+      }
+      .games-item {
+        &__title,
+        &__line,
+        &__excerpt {
+          z-index: 12;
+          left: 0;
+          text-align: left;
+          margin-right: auto;
+          margin-left: 0;
+          right: 15px;
+          font-weight: 200;
+        }
+        &__excerpt {
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+        &__trailer {
+          pointer-events: all;
+          z-index: 15;
+          right: 20px;
+        }
+      }
+    }
+    &__specifications {
+      font-size: 12px;
+      line-height: 1.15;
+      color: #fff;
+      position: relative;
+      z-index: 5;
+      left: 0;
+      right: 15px;
+      margin: 0;
+      @include transition($transition);
+      @include transition-delay(0s);
+      @include opacity(0);
+
+      &-title {
+        font-weight: 600 !important;
+      }
+      p {
+        font-size: 12px;
+        font-weight: 200;
+        margin-bottom: 0;
+
+        strong {
+          font-weight: 600;
+        }
+      }
+    }
+    &__title {
+      width: 100%;
+      font-size: 25px;
+      color: #fff;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 5;
+      left: 20%;
+      margin: 0;
+      @include transition($transition);
+      @include transition-delay(0s);
+      @include opacity(0);
+    }
+    &__line {
+      display: block;
+      width: 100%;
+      max-width: 125px;
+      height: 1px;
+      background: map_get($colors, default);
+      position: relative;
+      z-index: 5;
+      left: 20%;
+      margin: 10px 0 0 auto;
+      @include transition($transition);
+      @include transition-delay(0s);
+      @include opacity(0);
+    }
+    &__excerpt {
+      width: 100%;
+      font-size: 12px;
+      font-weight: 200;
+      line-height: 1.3;
+      color: #fff;
+      position: relative;
+      z-index: 5;
+      left: 20%;
+      margin: 10px 0 0 auto;
+      text-align: right;
+      max-width: 80%;
+      @include transition($transition);
+      @include transition-delay(0s);
+      @include opacity(0);
+
+      p {
+        text-align: inherit;
+        line-height: inherit;
+        @extend ._inherit;
+      }
+    }
+    &__about {
+      position: absolute;
+      left: -15px;
+      bottom: 15px;
+      z-index: 15;
+      cursor: pointer;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+      @include transition-delay(.3s);
+      @include transition($transition);
+      @include opacity(0);
+
+      &:hover {
+        .games-item__about {
+          &-icon {
+            border-color: map_get($colors, secondary);
+            background: map_get($colors, secondary);
+          }
+          &-text {
+            color: map_get($colors, secondary);
+          }
+        }
+      }
+      &-icon {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        margin-right: 10px;
+        @include flexbox();
+        @include flex-wrap(wrap);
+        @include align-items(center);
+        @include transition($transition);
+
+        .icon {
+          max-width: 4px;
+          max-height: 14px;
+          margin: auto;
+        }
+        .icon-arrow-down {
+          display: none;
+          max-width: 14px;
+          max-height: 14px;
+          stroke-width: 2px;
+          @include rotate(90deg);
+        }
+      }
+      &-text {
+        color: #fff;
+        font-size: 14px;
+        @include transition($transition);
+      }
+      @media (max-width: $screen-sm-max) {
+        display: none;
+      }
+    }
+    &__more {
+      display: none;
+    }
+    &__trailer {
+      position: absolute;
+      bottom: 15px;
+      right: -15px;
+      z-index: 15;
+      @include opacity(0);
+      @include transition($transition);
+    }
+    @media (max-width: $screen-md-max) {
+      width: 100%;
+      max-width: 585px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: $screen-sm-max) {
+      width: calc(100% + 30px);
+      margin-left: auto;
+      margin-right: auto;
+
+      &._shown_content {
+        .games-item {
+          &__content {
+            &-circle {
+              @include translate(-50%, -53%);
+            }
+          }
+          &__more {
+            top: 87%;
+
+            ._on {
+              display: block;
+            }
+            ._off {
+              display: none;
+            }
+          }
+        }
+      }
+      &__content {
+        max-width: 100%;
+
+        &-circle {
+          width: 820px;
+          height: 820px;
+          left: 50%;
+          top: 0;
+          @include translate(-50%, -96%);
+
+          &:before {
+            bottom: 56px;
+          }
+        }
+      }
+      &__title {
+        font-size: 20px;
+      }
+      &__excerpt {
+        margin-bottom: 10px;
+      }
+      &__trailer {
+        display: none;
+      }
+      &__more {
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: 0;
+        right: 0;
+        z-index: 15;
+        text-align: center;
+        pointer-events: all;
+        @include transition(all .45s ease);
+
+        .icon {
+          margin: auto;
+
+          &-arrow-down {
+            max-width: 30px;
+            max-height: 14px;
+            @include rotate(-180deg);
+          }
+        }
+        ._on {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: $screen-xs-max) {
+      max-width: none;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+  &-detail {
+    &__info {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 2;
+      width: 400px;
+      height: 400px;
+      padding: 100px 15px 15px;
+      text-align: right;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include align-items(center);
+    }
+    &__circle {
+      content: '';
+      position: absolute;
+      right: -460px;
+      bottom: -460px;
+      width: 920px;
+      height: 920px;
+      border-radius: 50%;
+      z-index: 1;
+      background: rgba(map_get($colors, secondary), .9);
+      @include transition($transition);
+    }
+    &__title {
+      width: 100%;
+      font-size: 40px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin: 0;
+    }
+    &__excerpt {
+      width: 100%;
+      font-size: 18px;
+      color: #FFFFFF;
+      margin: 15px 0 auto;
+      text-align: right;
+
+      p {
+        font-size: inherit;
+        text-align: inherit;
+      }
+    }
+    &__icons {
+      width: 100%;
+      margin: auto -8px 0;
+      text-align: right;
+      @include flexbox();
+      @include flex-wrap(wrap);
+
+      .icon-wrapper {
+        margin: 0 8px;
+
+        &:first-child {
+          margin-left: auto;
+        }
+        @media (min-width: $screen-lg) {
+          width: 50px;
+          height: 50px;
+
+          .icon {
+            @include scale(1.5)
+          }
+        }
+      }
+    }
+    .games-item {
+      &__logo {
+        margin: auto auto  15px 15px;
+      }
+    }
+  }
+}

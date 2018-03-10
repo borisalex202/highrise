@@ -1,0 +1,58 @@
+/* Fonts */
+$font-family-base:             'Raleway', sans-serif;
+$font-size:                    16px;
+
+/* Animation */
+$transition:                   all .3s ease;
+
+/* Main */
+$shadows: (
+        default:               0 10px 100px 0 rgba(0, 0, 0, .5),
+        primary:               0 0 50px 0 rgba(0,0,0,0.50),
+        circle:                0 0 35px 0 rgba(0,0,0,0.40),
+        game:                  0 0 35px 0 rgba(18,26,59,0.50),
+        line:                  0 -5px 10px 0 rgba(0,0,0,0.50),
+);
+
+//  Colors
+$colors: (
+        default:               #3A446D,
+        primary:               #2F3962,
+        secondary:             #F15959,
+        text:                  #444,
+        link:                  #F15959,
+        heading:               #fff,
+        border:                #666666,
+        gray:                  #444444,
+
+        btnDefault:            transparent,
+        btnDefaultHover:       #F15959,
+
+        btnPrimary:            transparent,
+        btnPrimaryHover:       #F15959,
+
+        success:               #47B800,
+        warning:               #EE8B00,
+        error:                 #C03344,
+        inactive:              #EAEAEA
+);
+
+//  Size
+$size: (
+        h1:                    80px,
+        h2:                    54px,
+        h3:                    36px,
+        h4:                    30px,
+        h5:                    25px,
+        h6:                    20px,
+        p:                     16px,
+        a:                     16px
+);
+
+//  Background
+$bg-colors: (
+        default:               #3A446D,
+        primary:               #2F3962,
+        secondary:             #F15959,
+        dark:                  #1B2448
+);

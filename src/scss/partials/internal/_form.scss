@@ -1,0 +1,76 @@
+.form {
+  &-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  &-control {
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    padding: 0 20px;
+    background: transparent;
+    border: 2px solid #576293;
+    @include transition($transition);
+
+    @include placeholder {
+      color: #fff;
+    }
+    &:focus {
+      border-color: map_get($colors, secondary);
+    }
+  }
+}
+.wpcf7 {
+  &-form {
+    .ajax-loader {
+      display: none !important;
+    }
+    p {
+      text-align: center;
+      margin: 0 !important;
+    }
+  }
+  &-not-valid {
+    border-color: map_get($colors, error);
+
+    &-tip {
+      display: none !important;
+    }
+  }
+  &-validation-errors,
+  &-mail-sent-ok {
+    display: block;
+    position: absolute;
+    top: calc(100% - 10px);
+    left: -2px;
+    right: -2px;
+    padding: 7px 15px !important;
+    max-width: none;
+    width: calc(100% + 4px) !important;
+    margin: 0 !important;
+    z-index: 10;
+    border-top-width: 0 !important;
+    background: map_get($colors, primary);
+    border-radius: 0 0 15px 15px;
+    color: #fff;
+
+    @media (max-width: $screen-sm-max) {
+      border-radius: 0;
+      position: static;
+      margin-top: 30px !important;
+      border-top-width: 2px !important;
+    }
+  }
+  &-validation-errors {
+    border-color: map_get($colors, warning) !important;
+  }
+  &-mail-sent-ok {
+    border-color: map_get($colors, success) !important;
+  }
+}
+textarea.form-control {
+  height: auto;
+  padding: 15px 20px;
+  max-height: 100px;
+}

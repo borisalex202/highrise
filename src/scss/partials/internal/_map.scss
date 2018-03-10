@@ -1,0 +1,65 @@
+.map {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+  width: 100% !important;
+  height: 100% !important;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: map_get($colors, default);
+    z-index: 2;
+    @include transition($transition);
+    @include opacity(.6);
+  }
+  &-toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: map_get($colors, secondary);
+    border: 1px solid map_get($colors, secondary);
+    z-index: 10;
+    pointer-events: all;
+    cursor: pointer;
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-items(center);
+    @include transition($transition);
+
+    &:hover {
+      background: map_get($colors, primary);
+      border-color: map_get($colors, secondary);
+    }
+    .icon {
+      margin: auto;
+      position: relative;
+      left: -1px;
+      top: -1px;
+    }
+    ._on {
+      display: none;
+    }
+  }
+  @media (max-width: $screen-sm-max) {
+    position: static;
+    min-height: 70vh;
+
+    &:before {
+      display: none;
+    }
+    &-toggle {
+      display: none;
+    }
+  }
+}
