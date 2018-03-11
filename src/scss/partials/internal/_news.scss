@@ -70,10 +70,16 @@
         }
       }
     }
+    &._standard {
+      margin-bottom: 50px;
+
+      @media (max-width: $screen-sm-max) {
+        margin-bottom: 0;
+      }
+    }
     &._standard,
     &._standard:nth-child(even){
-      border: 1px solid rgba(#fff, .3);
-      border-top: 0;
+      border: 1px solid #fff;
 
       .news-item {
         &__thumbnail {
@@ -255,6 +261,7 @@
         font-size: 14px;
       }
     }
+    &__author,
     &__date,
     &__category {
       @include flexbox();
@@ -268,6 +275,10 @@
         position: relative;
         top: -1px;
         margin-right: 10px;
+
+        &-user {
+          top: 1px;
+        }
       }
       a {
         text-decoration: none;

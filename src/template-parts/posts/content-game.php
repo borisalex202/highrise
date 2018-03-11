@@ -39,10 +39,10 @@
         <a href="<?php the_permalink(get_the_ID()); ?>" class="icon-wrapper games-item__trailer">
             <svg class="icon icon-trailer"><use xlink:href="#icon-trailer"></use></svg>
         </a>
-        <span class="games-item__more js-toggle-content">
+        <div class="games-item__more js-toggle-content">
             <svg class="icon icon-game-more _off"><use xlink:href="#icon-game-more"></use></svg>
             <svg class="icon icon-arrow-down _on"><use xlink:href="#icon-arrow-down"></use></svg>
-        </span>
+        </div>
     </div>
 
     <span class="games-item__about js-toggle-content">

@@ -14,6 +14,47 @@
     @include align-items(center);
     @include opacity(1);
   }
+  &._full {
+    .modal {
+      &-dialog {
+        max-width: none;
+        width: 100%;
+        height: 100%;
+      }
+      &-content {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  &._trailer {
+    .modal {
+      &-dialog {
+        &:before {
+          content: '';
+          position: absolute;
+          top: -75px;
+          right: -75px;
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          background: map_get($colors, default);
+          z-index: 1;
+          @include box-shadow(map_get($shadows, circle));
+        }
+      }
+      &-close {
+        z-index: 10;
+
+        @media (max-width: $screen-sm-max) {
+          top: 15px;
+        }
+        @media (max-width: $screen-xs) {
+          top: 15px;
+        }
+      }
+    }
+  }
   &-dialog {
     margin: auto;
   }
@@ -87,6 +128,84 @@
       position: static;
       height: auto;
       margin-top: 15px;
+    }
+  }
+  .arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    top: 50%;
+    z-index: 10;
+    @include translate(0, -50%);
+    @include transition($transition);
+
+    &._hidden {
+      pointer-events: none;
+      @include opacity(0);
+    }
+    &:hover {
+      .icon {
+        stroke: map_get($colors, secondary);
+      }
+    }
+    .icon {
+      max-width: 30px;
+      max-height: 14px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: $screen-xs) {
+      @include scale(.5);
+    }
+  }
+  .prev {
+    left: 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -100px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: map_get($colors, default);
+      z-index: 1;
+      @include box-shadow(map_get($shadows, circle));
+
+      @media (max-width: $screen-xs) {
+        left: -110px;
+      }
+    }
+    .icon {
+      @include rotate(90deg);
+    }
+  }
+  .next {
+    right: 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -100px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: map_get($colors, default);
+      z-index: 1;
+      @include box-shadow(map_get($shadows, circle));
+
+      @media (max-width: $screen-xs) {
+        right: -110px;
+      }
+    }
+    .icon {
+      @include rotate(-90deg);
     }
   }
 }

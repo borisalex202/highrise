@@ -72,6 +72,10 @@
               @include opacity(1);
             }
           }
+
+          @media (max-width: $screen-sm-max) {
+            height: 100%;
+          }
         }
         &__about {
           left: 15px;
@@ -403,7 +407,7 @@
             }
           }
           &__more {
-            top: 87%;
+            top: 84%;
 
             ._on {
               display: block;
@@ -422,7 +426,7 @@
           height: 820px;
           left: 50%;
           top: 0;
-          @include translate(-50%, -96%);
+          @include translate(-50%, -95%);
 
           &:before {
             bottom: 56px;
@@ -441,16 +445,21 @@
       &__more {
         display: block;
         position: absolute;
-        top: 5px;
+        top: 0;
+        height: 42px;
         left: 0;
         right: 0;
-        z-index: 15;
+        z-index: 150;
         text-align: center;
         pointer-events: all;
         @include transition(all .45s ease);
+        @include flexbox();
+        @include flex-wrap(wrap);
+        @include align-items(center);
 
         .icon {
           margin: auto;
+          pointer-events: all;
 
           &-arrow-down {
             max-width: 30px;
@@ -482,6 +491,17 @@
       @include flexbox();
       @include flex-wrap(wrap);
       @include align-items(center);
+
+      @media (max-width: $screen-md-max) {
+        width: 250px;
+        height: 350px;
+        padding: 80px 15px 15px;
+      }
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+        height: 220px;
+        padding: 20px 15px 30px 15px
+      }
     }
     &__circle {
       content: '';
@@ -494,6 +514,20 @@
       z-index: 1;
       background: rgba(map_get($colors, secondary), .9);
       @include transition($transition);
+
+      @media (max-width: $screen-md-max) {
+        right: -350px;
+        bottom: -350px;
+        width: 700px;
+        height: 700px;
+      }
+      @media (max-width: $screen-xs-max) {
+        right: -25%;
+        left: -25%;
+        width: 150%;
+        bottom: -350px;
+        height: 600px;
+      }
     }
     &__title {
       width: 100%;
@@ -501,6 +535,15 @@
       font-weight: 600;
       color: #FFFFFF;
       margin: 0;
+
+      @media (max-width: $screen-md-max) {
+        font-size: 26px;
+      }
+      @media (max-width: $screen-xs-max) {
+        max-width: 320px;
+        margin: 0 auto;
+        text-align: center;
+      }
     }
     &__excerpt {
       width: 100%;
@@ -512,6 +555,13 @@
       p {
         font-size: inherit;
         text-align: inherit;
+      }
+      @media (max-width: $screen-md-max) {
+        font-size: 14px;
+      }
+      @media (max-width: $screen-xs-max) {
+        text-align: center;
+        margin: 5px 0;
       }
     }
     &__icons {
@@ -535,11 +585,302 @@
             @include scale(1.5)
           }
         }
+        @media (max-width: $screen-xs-max) {
+          &:last-child {
+            margin-right: auto;
+          }
+        }
+      }
+      @media (max-width: $screen-xs-max) {
+        margin: 0 0 auto;
+      }
+    }
+    &__gallery {
+      @include flexbox();
+      @include flex-wrap(wrap);
+
+      &-item {
+        width: 33.3333%;
+        min-height: 35vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        @include transition($transition);
+
+        &:hover {
+          .games-detail__gallery-zoom {
+            @include scale(1);
+            @include opacity(1);
+          }
+        }
+        @media (max-width: $screen-sm-max) {
+          width: 50%;
+          min-height: 350px;
+        }
+        @media (max-width: $screen-xs-max) {
+          min-height: 150px;
+        }
+        @media (max-width: $screen-xs) {
+          min-height: 150px;
+        }
+      }
+      &-zoom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(map_get($colors, secondary), .8);
+        z-index: 2;
+        pointer-events: none;
+        @include transition($transition);
+        @include scale(1.2);
+        @include opacity(0);
+        @include flexbox();
+        @include flex-wrap(wrap);
+        @include align-items(center);
+
+        .icon-wrapper {
+          margin: auto;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      &-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    &__slider {
+      position: relative;
+      z-index: 10;
+      @include box-shadow(map_get($shadows, default));
+
+      &-item {
+        height: calc(100vh - 70px);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: -moz-flex !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        @include flex-wrap(wrap);
+        @include align-items(center);
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          background: rgba(map_get($colors, default), .6);
+        }
+        .container {
+          margin: auto;
+          position: relative;
+          z-index: 9;
+        }
+        @media (max-width: $screen-md-max) {
+          .container {
+            max-width: 800px;
+          }
+        }
+        @media (max-width: $screen-sm-max) {
+          .container {
+            max-width: 600px;
+          }
+        }
+        @media (max-width: $screen-xs-max) {
+          height: 450px;
+
+          .container {
+            padding-top: 80px;
+            margin: 0 auto auto;
+          }
+        }
+      }
+      &-title {
+        font-size: 55px;
+        font-weight: 600;
+        line-height: 1.1;
+        color: #FFFFFF;
+        text-align: left;
+        margin: 0 !important;
+
+        @media (max-width: $screen-sm-max) {
+          font-size: 35px;
+        }
+        @media (max-width: $screen-xs-max) {
+          font-size: 22px;
+        }
+      }
+      &-description {
+        font-size: 20px;
+        color: #FFFFFF;
+        max-width: 700px;
+        text-align: justify;
+        margin: 15px 0 0 0;
+
+        @media (max-width: $screen-sm-max) {
+          font-size: 18px;
+        }
+        @media (max-width: $screen-xs-max) {
+          font-size: 14px;
+        }
+      }
+      .slick {
+        &-arrow {
+          position: absolute;
+          top: 50%;
+          border: 0;
+          background: transparent;
+          padding: 0;
+          margin: 0;
+          z-index: 10;
+          height: 30px;
+          @include translate(0, -50%);
+
+          .icon {
+            max-width: 30px;
+            max-height: 14px;
+
+            &:hover {
+              stroke: map_get($colors, secondary);
+            }
+          }
+          @media (max-width: $screen-xs-max) {
+            top: 22px;
+            @include translate(0, 0);
+          }
+        }
+        &-prev {
+          left: 40px;
+
+          .icon {
+            @include rotate(90deg);
+          }
+          @media (max-width: $screen-xs-max) {
+            left: inherit;
+            right: 45px;
+          }
+        }
+        &-next {
+          right: 40px;
+
+          .icon {
+            @include rotate(-90deg);
+          }
+          @media (max-width: $screen-xs-max) {
+            right: 15px;
+          }
+        }
+      }
+    }
+    &__specifications {
+      color: #fff;
+      background: map_get($bg-colors, primary);
+      overflow: hidden;
+      position: relative;
+      @include flexbox();
+      @include flex-wrap(wrap);
+
+      &:before {
+        @media (min-width: $screen-md) {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          top: 0;
+          width: 1px;
+          background: map_get($colors, border-light);
+          @include translate(-50%, 0);
+        }
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        left: -117px;
+        top: -117px;
+        width: 235px;
+        height: 235px;
+        border-radius: 50%;
+        z-index: 0;
+        background: map_get($colors, secondary);
+
+        @media (max-width: $screen-sm-max) {
+          top: 50%;
+          left: inherit;
+          right: -160px;
+          @include translate(0, -50%)
+        }
+      }
+      &-col {
+        width: 50%;
+        position: relative;
+        z-index: 5;
+
+        @media (max-width: $screen-sm-max) {
+          width: 100%;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid map_get($colors, border-light);
+          }
+        }
+      }
+      &-header {
+        display: block;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 15px 30px;
+        border-bottom: 1px solid map_get($colors, border-light);
+        position: relative;
+        z-index: 5;
+
+        @media (max-width: $screen-sm-max) {
+          border-bottom: 0;
+          padding: 15px;
+        }
+      }
+      &-text {
+        display: block;
+        color: #fff;
+        padding: 30px;
+        font-size: 12px;
+        line-height: 1.2;
+        font-weight: 200;
+        margin: 0 !important;
+
+        p {
+          font-size: inherit;
+          line-height: inherit;
+          font-weight: 200;
+        }
+        @media (max-width: $screen-sm-max) {
+          padding: 5px 15px 25px;
+        }
+      }
+      @media (max-width: $screen-sm-max) {
+        margin-left: -15px;
+        margin-right: -15px;
       }
     }
     .games-item {
       &__logo {
         margin: auto auto  15px 15px;
+
+        @media (max-width: $screen-sm-max) {
+          margin: 15px 15px auto auto;
+          max-width: 200px;
+        }
       }
     }
   }

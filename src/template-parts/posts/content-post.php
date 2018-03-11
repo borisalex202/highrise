@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('_bg-primary'); ?>>
-    <header class="post-header js-show-subscribe" data-shown_popup=false>
+    <header class="post-header">
         <div class="site-banner _mini" style="background-image: url('<?php echo (get_the_post_thumbnail_url( get_the_ID(), 'large' ) ? get_the_post_thumbnail_url( get_the_ID(), 'large' ) : get_theme_mod('main_img')); ?>')">
             <div class="container">
                 <?php
@@ -13,16 +13,20 @@
 	<div class="post-content section">
         <div class="container">
 
-            <div class="site-content-area">
+            <div class="site-content-area js-show-subscribe">
                 <div class="news-item__tools">
-                    <span class="news-item__date">
+                    <div class="news-item__author">
+                        <svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg>
+                        <?php echo get_the_author(); ?>
+                    </div>
+                    <div class="news-item__date">
                         <svg class="icon icon-date"><use xlink:href="#icon-date"></use></svg>
                         <?php echo get_the_date( 'm-d-Y', get_the_ID() ); ?>
-                    </span>
-                        <span class="news-item__category">
+                    </div>
+                    <div class="news-item__category">
                         <svg class="icon icon-tag"><use xlink:href="#icon-tag"></use></svg>
                             <?php the_category(); ?>
-                    </span>
+                    </div>
                 </div>
 
 		        <?php the_content(); ?>
@@ -85,24 +89,15 @@
     </div>
 
     <script>
-        var flag = false;
+        var shownModal = false;
 
         $(window).on('scroll resize', function () {
             var $area = $('.js-show-subscribe'),
-                $modal = $('#modal-subscribe'),
-                $shown = $area.data('shown_popup');
+                $modal = $('#modal-subscribe');
 
-
-            if($shown) {
-                return false;
-            } else {
-                setTimeout(function () {
-                    $area.data('shown_popup', true);
-                    if(!flag && $(window).scrollTop() >= $area.offset().top + $area.outerHeight()) {
-                        flag = true;
-                        $modal.modal('show');
-                    }
-                }, 2000);
+            if(!shownModal && $(document).scrollTop() + $(window).height() >= $area.offset().top + $area.outerHeight()) {
+                shownModal = true;
+                $modal.modal('show');
             }
         });
     </script>

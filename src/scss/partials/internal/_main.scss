@@ -78,6 +78,27 @@ body {
       top: 106px;
     }
   }
+  .modal._full {
+    .modal-close {
+      top: 42px;
+
+      @media (max-width: 782px) {
+        top: 52px
+      }
+    }
+  }
+  .modal._trailer .modal-dialog:before {
+    top: -43px;
+
+    @media (max-width: 782px) {
+      top: -33px;
+    }
+  }
+  .games-detail .games-item__logo {
+    @media (max-width: $screen-sm-max) {
+      margin: 50px 15px auto auto;
+    }
+  }
 }
 .flex {
   @include flexbox();
@@ -118,5 +139,36 @@ body {
     margin-top: 0;
     margin-bottom: 30px;
     min-height: 350px;
+    background-size: cover;
+  }
+}
+._icons_circle {
+  @media (min-width: $screen-lg) {
+    ~ .container {
+      position: relative;
+      z-index: 2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -40px;
+      width: 235px;
+      height: 235px;
+      border-radius: 50%;
+      background: map_get($colors, dark);
+      z-index: 0;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 35%;
+      left: -60px;
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      background: lighten(map_get($colors, default), 5%);
+      z-index: 0;
+    }
   }
 }

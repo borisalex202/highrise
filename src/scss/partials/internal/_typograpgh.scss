@@ -146,6 +146,12 @@ h6 {
 }
 iframe {
   border: 0;
+  /*width: 100%;
+  min-height: 450px;
+
+  @media (max-width: $screen-xs-max) {
+    min-height: 350px;
+  }*/
 }
 ._text {
   &-light {

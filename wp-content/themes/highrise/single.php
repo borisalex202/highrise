@@ -7,7 +7,7 @@
 
                 $post_type = get_post_type( get_the_ID() );
 
-                if($post_type = 'games') {
+                if($post_type == 'games') {
                     get_template_part( 'template-parts/posts/content', 'game-detail' );
                 } else {
                     get_template_part('template-parts/posts/content', 'post');

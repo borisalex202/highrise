@@ -219,7 +219,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -243,6 +242,12 @@
     &._game-detail {
       &:before {
         display: none;
+      }
+      .site-banner__arrow {
+        @media (max-width: $screen-xs-max) {
+          bottom: 10px;
+          z-index: 10;
+        }
       }
     }
     &:before {
@@ -297,9 +302,12 @@
     .container {
       height: 100%;
     }
+    @media (min-width: $screen-lg) {
+      background-attachment: fixed;
+    }
     @media (max-width: $screen-xs-max) {
       padding-top: 60px;
-      min-height: 450px;
+      min-height: 500px;
     }
     @media (max-width: $screen-xs) {
       .container {
@@ -490,11 +498,25 @@
   &-follow {
     border-top: 1px solid map_get($colors, secondary);
     padding-top: 30px;
-    margin-top: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $screen-sm-max) {
+      margin-top: 30px;
+    }
   }
   &-content-area {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid #fff;
+    border-bottom: 0;
+    padding: 30px;
+
+    @media (max-width: $screen-sm-max) {
+      padding: 0;
+      border: 0;
+    }
   }
 }

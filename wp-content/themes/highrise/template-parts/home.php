@@ -2,8 +2,8 @@
 /*
 Template Name: Home
 */
-?>
-<?php get_header(); ?>
+
+get_header(); ?>
 
     <main class="site-main">
         <div class="site-banner" style="background-image: url('<?php echo get_theme_mod('main_img'); ?>')">

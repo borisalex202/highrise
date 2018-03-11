@@ -111,6 +111,11 @@
     }
   }
   &--games {
+    &-detail {
+      .container {
+        max-width: 900px;
+      }
+    }
     &_icon {
       position: absolute;
       top: -50px;
@@ -152,6 +157,14 @@
     }
     &--subscribe {
       padding-bottom: 0;
+    }
+    &--games-list {
+      padding: 0;
+    }
+    &--games {
+      &-detail {
+        padding-bottom: 0;
+      }
     }
   }
 }

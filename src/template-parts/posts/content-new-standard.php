@@ -9,6 +9,10 @@
     <header class="news-item__header">
         <h4 class="news-item__title"><a href="<?php the_permalink(get_the_ID()); ?>"><?php the_title(); ?></a></h4>
         <div class="news-item__tools">
+            <div class="news-item__author">
+                <svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg>
+                <?php echo get_the_author(); ?>
+            </div>
             <div class="news-item__date">
                 <svg class="icon icon-date"><use xlink:href="#icon-date"></use></svg>
                 <?php echo get_the_date( 'm-d-Y', get_the_ID() ); ?>

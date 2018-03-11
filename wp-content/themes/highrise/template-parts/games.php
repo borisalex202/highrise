@@ -18,7 +18,7 @@
             </div>
         </header><!-- .post-header -->
 
-        <div class="post-content section">
+        <div class="post-content section section--games-list">
             <div class="container">
                 <div class="news-list">
                     <?php

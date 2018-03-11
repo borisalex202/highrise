@@ -59,12 +59,6 @@ function highrise_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'highrise_scripts' );
 
-function clean_script_tag($input) {
-    $input = str_replace("type='text/javascript' ", '', $input);
-    return str_replace("'", '"', $input);
-}
-add_filter('script_loader_tag', 'clean_script_tag');
-
 function my_acf_google_map_api( $api ){
 
     $api['key'] = 'AIzaSyAH8x96bQJZ5oeR4WkFwCUiin0Y5WwqEDw';

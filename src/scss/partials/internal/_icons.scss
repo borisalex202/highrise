@@ -135,7 +135,22 @@
     max-height: 14px;
   }
   &-gallery {
-    max-width: 27px;
+    max-width: 25px;
+    max-height: 25px;
+    position: relative;
+    top: 3px;
+    stroke-width: 3px;
+    stroke: #fff;
+  }
+  &-user {
+    max-width: 15px;
+    max-height: 18px;
+    stroke-width: 6px;
+    fill: none;
+    stroke: map_get($colors, secondary);
+  }
+  &-zoom {
+    max-width: 20px;
     max-height: 20px;
   }
 }

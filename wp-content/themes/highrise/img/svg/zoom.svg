@@ -1,0 +1,18 @@
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="gallery-hover" transform="translate(-230.000000, -165.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="gallery">
+                <g id="zoom" transform="translate(220.000000, 155.000000)">
+                    <g transform="translate(10.000000, 10.000000)">
+                        <path d="M19.9993574,18.9522892 L14.2315261,13.1835743 C15.3908835,11.7893976 16.0887952,9.9988755 16.0887952,8.04441767 C16.0887952,3.60128514 12.48751,0 8.04441767,0 C3.60208835,0 0,3.60128514 0,8.04441767 C0,12.486506 3.60208835,16.0886345 8.04441767,16.0886345 C9.99927711,16.0886345 11.7896386,15.3906827 13.1838554,14.2312851 L18.9516466,20 L19.9993574,18.9522892 Z M0.846787149,8.04441767 C0.846787149,4.07554217 4.07514056,0.846787149 8.04441767,0.846787149 C12.0128916,0.846787149 15.2420482,4.07554217 15.2420482,8.04441767 C15.2420482,12.0135341 12.0129317,15.2418072 8.04441767,15.2418072 C4.07514056,15.2418072 0.846787149,12.0135341 0.846787149,8.04441767 Z" id="Shape"></path>
+                        <rect id="Rectangle-path" x="3.94301205" y="7.64811245" width="8.06140562" height="1"></rect>
+                        <rect id="Rectangle-path" x="7.55032129" y="4.04076305" width="1" height="8.06140562"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
